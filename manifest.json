@@ -1,0 +1,31 @@
+{
+  "name": "aoeu's extension",
+  "version": "0.4",
+  "description": "Proxy test",
+  "default_locale": "en",
+  "browser_action": {
+    "default_icon": "icon16.png",
+    "default_popup": "popup.html"
+  },
+  "icons": {
+    "16": "icon16.png",
+    "32": "icon32.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
+  "background": {
+    "scripts": [
+      "background.js"
+    ]
+  },
+  "content_scripts": [
+  {
+      "matches": ["http://www.yahoo.co.jp/*"],
+      "js": ["jquery.js", "myscript.js"],
+	  "run_at": "document_start"
+  }],
+  "permissions": [
+    "proxy", "webRequest", "fileSystem", "tabs", "http://www.yahoo.co.jp/*", "http://www.youtube.com/*", "http://localhost:8081/*"
+  ],
+  "manifest_version": 2
+}
